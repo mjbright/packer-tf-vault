@@ -11,7 +11,7 @@ Packer can build images for many platforms other than AWS, but AWS requires no a
 ### Install Packer
 The first thing we need to do is install Packer. To install the latest version, run the following: 
 ```bash
-export VER="1.8.0"
+export VER="1.11.2"
 wget https://releases.hashicorp.com/packer/${VER}/packer_${VER}_linux_amd64.zip 
 unzip packer_${VER}_linux_amd64.zip
 mkdir -p $HOME/.local/bin
@@ -26,6 +26,24 @@ cd $(date +%Y%m%d)/packer/lab1
 The configuration file used to define what image we want built and how is called a *template* in Packer terminology. Packer templates use the Hashicorp Configuration Language (HCL).
 
 We'll start by creating the entire template; then we'll go over each section briefly. 
+
+#### The Plugin Specification
+
+Create a file `plugin.pkr.hcl` and fill it with the following contents:
+```hcl
+packer {
+  required_plugins {
+    amazon = {
+      source  = "github.com/hashicorp/amazon"
+      version = "~> 1"
+    }
+  }
+}
+```
+
+This file specifies that the build we will perform requires the Amazon plugin to be able to use resources in the AWS Cloud.
+
+#### The Build Specification
 
 Create a file `example.pkr.hcl` and fill it with the following contents:
 
@@ -48,7 +66,7 @@ source "amazon-ebs" "example" {
   region        = "us-east-1"
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-noble-24.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
