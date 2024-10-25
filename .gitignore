@@ -1,1 +1,6 @@
 *.DS*
+
+# Ignore stuff copied into mkdocs/docs (copied in so as not to change existing repo structure)
+# 
+mkdocs/docs/README.md
+mkdocs/docs/labs/
