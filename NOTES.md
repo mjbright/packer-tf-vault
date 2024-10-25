@@ -27,4 +27,27 @@ sudo ./aws/install
 
 - Create a subnet on the default vpc: ```aws ec2 create-default-subnet --availability-zone us-east-1a```
 
+# Lab 2: Packer Provisioners
+
+## Updates
+
+- Modified firstrun.pkg.hcl to use Ubuntu 24.04
+- Modified provisioner block to use "sudo DEBIAN_FRONTEND=noninteractive apt-get install -y redis-server"
+
+## Suggested improvements
+
+- Don't modify lab1's example.pkg.hcl
+- Rename firstrun.pkg.hcl as aws-redis.pkg.hcl
+- Remove references to welcome.txt, example.sh
+- Add provisioner block to aws-redis.pkg.hcl
+
+# Lab 3: Packer Variables
+
+## Updates
+
+- Made text more explicit about use of *.auto.pkrvars.hcl files (and use of "packer build .")
+
+
+
+
 

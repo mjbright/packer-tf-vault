@@ -76,6 +76,8 @@ packer build --var-file=firstrun.pkrvars.hcl firstrun.pkr.hcl
 
 Notice how the AMI name starts with `packer-aws-redis-var-`, the value for `ami_prefix` defined by the variable file.
 
+#### Build image with `*.auto.pkrvars.hcl` variable file
+
 Packer will automatically load any variable file that matches the name `*.auto.pkrvars.hcl`, without the need to pass the file via the command line.
 
 Rename your variable file so Packer automatically loads it.
@@ -84,7 +86,13 @@ Rename your variable file so Packer automatically loads it.
 mv firstrun.pkrvars.hcl firstrun.auto.pkrvars.hcl
 ```
 
-Build the image and notice how the AMI name starts with `packer-aws-redis-`. The `packer build .` command loads all the contents in the current directory.
+Build the image and notice how the AMI name starts with `packer-aws-redis-`.
+
+The `packer build .` command loads all the contents in the current directory - note the `.` at the end of the line.
+
+```sh
+packer build .
+```
 
 #### Build image with command-line flag
 Build the image, setting the variable directly from the command-line.
