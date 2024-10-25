@@ -49,7 +49,7 @@ source "amazon-ebs" "firstrun" {
   region        = "${var.region}"
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-noble-24.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
@@ -101,7 +101,7 @@ build {
     inline = [
       "sleep 30",
       "sudo apt-get update",
-      "sudo apt-get install -y redis-server",
+      "sudo DEBIAN_FRONTEND=noninteractive apt-get install -y redis-server",
     ]
   }
 }
