@@ -77,9 +77,13 @@ You can refer to variables in your configuration with `var.<variable_name>`.
 Edit the provider block in `main.tf` to use the new `aws_region` variable.
 
 Add a declaration for the `vpc_cidr_block` variable to `variables.tf` with the following: 
+
 - variable name: `vpc_cidr_block`
+
 - description: `CIDR block for VPC`
+
 - type: `string`
+
 - default: `10.0.0.0/16`
 
 Now, replace the hard-coded value for the VPC's CIDR block with a variable in `main.tf`.
@@ -90,9 +94,13 @@ Apply the updated configuration. The default values of these variables are the s
 Use a `number` type to define how many instances are supported by this configuration. 
 
 Add a variable block to `variables.tf` with the following: 
+
 - variable name: `instance_count`
+
 - description: `Number of instances to provision.`
+
 - type: number 
+
 - default: `2`
 
 Update the EC2 instances resource to use the `instance_count` variable in `main.tf`
