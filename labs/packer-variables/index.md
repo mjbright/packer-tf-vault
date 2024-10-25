@@ -14,6 +14,8 @@ mkdir -p ~/$(date +%Y%m%d)/packer/lab3
 cd ~/$(date +%Y%m%d)/packer/lab3
 ```
 
+- Copy the redis-server.pkr.hcl file from the lab2, into this lab3 directory.
+
 Add the following variable block to your template   
 ```hcl
 variable "ami_prefix" {
@@ -53,25 +55,25 @@ source "amazon-ebs" "ubuntu" {
 
 Build the image.
 ```sh
-packer build firstrun.pkr.hcl
+packer build redis-server.pkr.hcl
 ```
 
 
 After running your `packer build` you should see output stating the image was created successfully. Notice how the Packer creates an AMI where its name consists of `packer-linux-aws-redis`, the default value for the `ami_prefix` variable, and a timestamp.
 
-Build image with variables 
+#### Build image with variables 
 
 Since `ami_prefix` is parameterized, you can define your variable before building the image. There are multiple ways to assign variables. The order of ascending precedence is: variable defaults, environment variables, variable file(s), command-line flag. In this section, you will define variables using variable files and command-line flags.
 
 #### Build image with variable file
-Create a file named `firstrun.pkrvars.hcl` and add the following snippet into it.
+Create a file named `redis-server.pkrvars.hcl` and add the following snippet into it.
 ```hcl
 ami_prefix = "packer-aws-redis-var"
 ```
 
 Build the image with the `--var-file` flag.
 ```sh
-packer build --var-file=firstrun.pkrvars.hcl firstrun.pkr.hcl
+packer build --var-file=redis-server.pkrvars.hcl redis-server.pkr.hcl
 ```
 
 Notice how the AMI name starts with `packer-aws-redis-var-`, the value for `ami_prefix` defined by the variable file.
@@ -83,12 +85,12 @@ Packer will automatically load any variable file that matches the name `*.auto.p
 Rename your variable file so Packer automatically loads it.
 
 ```sh
-mv firstrun.pkrvars.hcl firstrun.auto.pkrvars.hcl
+mv redis-server.pkrvars.hcl redis-server.auto.pkrvars.hcl
 ```
 
 Build the image and notice how the AMI name starts with `packer-aws-redis-`.
 
-The `packer build .` command loads all the contents in the current directory - note the `.` at the end of the line.
+**Note:** The `packer build .` command loads all the contents in the current directory - note the `dot` at the end of the line representing the current directory.
 
 ```sh
 packer build .
@@ -105,5 +107,11 @@ Notice how the AMI name starts with `packer-aws-redis-var-flag`, the value for `
 
 
 Bonus: Configure `region` in a variables file.
+
+## Variable Precedence
+
+Note that we have seen various ways in which we can specify variable values to Packer.
+
+Read about the precedence of these different ways at [https://developer.hashicorp.com/packer/guides/hcl/variables#assigning-variables](https://developer.hashicorp.com/packer/guides/hcl/variables#assigning-variables)
 
 ## Congrats! 

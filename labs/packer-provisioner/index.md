@@ -43,7 +43,7 @@ variable "region" {
 # source blocks are generated from your builders; a source can be referenced in
 # build blocks. A build block runs provisioners and post-processors on a
 # source.
-source "amazon-ebs" "firstrun" {
+source "amazon-ebs" "aws-redis" {
   ami_name      = "packer-linux-aws-redis"
   instance_type = "t2.micro"
   region        = "${var.region}"
@@ -61,7 +61,7 @@ source "amazon-ebs" "firstrun" {
 
 # a build block invokes sources and runs provisioning steps on them.
 build {
-  sources = ["source.amazon-ebs.firstrun"]
+  sources = ["source.amazon-ebs.aws-redis"]
 
   provisioner "file" {
     destination = "/home/ubuntu/"
@@ -92,10 +92,29 @@ source_ami = "ami-fceotj67
 After running your `packer build` you should see output stating the image was created successfully. Review the output and confirm the provisioners ran without error.
 
 ### Install packages
-We'll use the built-in shell provisioner that comes with Packer to install Redis. Modify the `example.pkr.hcl` template we made in the previous lab and add the following provisioner block inside of the already-existing build block. We'll explain the various parts of the new configuration following the code block below.
+We'll use the built-in shell provisioner that comes with Packer to install Redis.
+
+Perform the following steps:
+
+- Copy the firstrun.pkr.hcl file to redis-server.pkr.hcl:
+
+```cp firstrun.pkr.hcl redis-server.pkr.hcl```
+
+- Rename the file firstrun.pkr.hcl as firstrun.pkr.hcl.bak:
+
+```mv firstrun.pkr.hcl firstrun.pkr.hcl.bak```
+
+  (so as not to be picked up by "packer build ." later on)
+
+- Replace the build block in redis-server.pkr.hcl with the build block proposed below
+
+Modify `redis-server.pkr.hcl` with the build block proposed below:
+
+We'll explain the various parts of the new configuration following the code block below.
+
 ```hcl
 build {
-  sources = ["source.amazon-ebs.example"]
+  sources = ["source.amazon-ebs.aws-redis"]
 
   provisioner "shell" {
     inline = [
@@ -116,7 +135,7 @@ By default, each provisioner is run for every builder defined. So if we had two 
 The one provisioner we defined has a type of shell. This provisioner ships with Packer and runs shell scripts on the running machine. In our case, we specify two inline commands to run in order to install Redis.
 
 ### Build
-With the provisioner configured, give it a pass once again through `packer validate` to verify everything is okay, then build it using `packer build example.pkr.hcl`. The output should look similar to when you built your first image, except this time there will be a new step where the provisioning is run.
+With the provisioner configured, give it a pass once again through `packer validate` to verify everything is okay, then build it using `packer build redis-server.pkr.hcl`. The output should look similar to when you built your first image, except this time there will be a new step where the provisioning is run.
 
 The output from the provisioner is too verbose to include in this tutorial, since it contains all the output from the shell scripts. But you should see Redis successfully install. After that, Packer once again turns the machine into an AMI.
 
