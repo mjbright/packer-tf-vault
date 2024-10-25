@@ -74,7 +74,11 @@ In the above example, the type is `aws_instance` and the name is `lab1-tf-exampl
 We provide configuration data for our resource inside the resource block. These arguments are for things like machine size, image, VPC IDs, ssh username etc. 
 
 ## Initialize the directory
-Now that we have our configuration file created run `terraform init` to download the providers used in our configuration.
+Now that we have our configuration file created run
+
+```terraform init```
+
+to download the providers used in our configuration.
 
 Terraform uses a plugin-based architecture to support hundreds of infrastructure and service providers. Subsequent commands will use local settings and data during initialization.
 
@@ -129,6 +133,7 @@ As you can see above Terraform download the aws provider from the official Hashi
 Terraform includes a `fmt` argument to ensure consistent formatting in files and modules written by different teams. It automatically updates configurations for easy readability and consistency. 
 
 The `main.tf` file created is very basic, and is already formatted. 
+
 ```sh
 terraform fmt 
 ```
@@ -137,7 +142,13 @@ If there were any formatting issues, like equal signs not aligned or wrong inden
 
 If any files are formatted Terraform will output the name of the file. If there are not formatting changes there is not output.
 
-Now use the built-in `terraform validate` command to check and report any errors in modules, attribute names, and value types.
+Now use the built-in 
+
+```sh
+terraform validate
+```
+
+command to check and report any errors in modules, attribute names, and value types.
 
 ## Create infrastructure 
 Now that the provider is downloaded, configuration files are formatted and validated it's time to create the infrastructure. 
