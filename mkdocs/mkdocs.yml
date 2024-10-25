@@ -1,7 +1,4 @@
 site_name: Packer-Terraform-Vault Training
 theme:
   name: material
-  custom_dir: overrides
-extra_css:
-  - /stylesheets/extra.css
 
