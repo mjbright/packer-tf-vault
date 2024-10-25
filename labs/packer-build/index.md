@@ -20,8 +20,8 @@ mv packer $HOME/.local/bin
 ### The Template
 Create a working directory
 ```bash
-mkdir -p $(date +%Y%m%d)/packer/lab1
-cd $(date +%Y%m%d)/packer/lab1
+mkdir -p ~/$(date +%Y%m%d)/packer/lab1
+cd ~/$(date +%Y%m%d)/packer/lab1
 ```
 The configuration file used to define what image we want built and how is called a *template* in Packer terminology. Packer templates use the Hashicorp Configuration Language (HCL).
 
