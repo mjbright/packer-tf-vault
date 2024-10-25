@@ -8,9 +8,13 @@ The following steps continue where the previous lab left off. The below changes 
 ## VPN gateway support
 
 Use a `bool` type variable to control whether your VPC is configured with a VPN gateway. Add a declaration for the `enable_vpn_gateway` to `variables.tf`
+
 - variable name: `enable_vpn_gateway`
+
 - description: `Enable a VPN gateway in your VPC.`
+
 - type: `bool`
+
 - default: `false`
 
 Add the new variable in `main.tf` and replace the existing `enable_vpn_gateway = false` with the variable.
@@ -22,9 +26,14 @@ When you write Terraform modules you intend to re-use, you will usually want to 
 When you write Terraform configuration for a specific project, you may choose to leave some attributes with hard-coded values when it doesn't make sense to allow users to configure them.
 
 ## List public and private subnets
-So far you have used "simple" variables. These variables all have single values. Now let's use some more complex variables. Terraform supports collection variable types that contain more than one value. Terraform supports several collection variables types. 
+So far you have used "simple" variables. These variables all have single values. Now let's use some more complex variables. Terraform supports collection variable types that contain more than one value.
+
+Terraform supports several collection variables types:
+
 - List: A sequence of values of the same type.
+
 - Map: A lookup table, matching keys to values, all of the same type.
+
 - Set: An unordered collection of unique value, all of the same type.
 
 The following lab will use lists and a map, which are the most commonly used of these types. Sets are useful when a unique collection of values is needed, and the order of the items in the collection does not matter.
@@ -216,7 +225,7 @@ Apply these changes.
 The value of `project` tag has changed, so you will be prompted to apply the changes. Respond with `yes` to confirm the changes.
 
 ## Assign values when prompted
-In the examples, so far, all of the variable have had a default declared. If there is now default Terraform will prompt you at run time for the value. 
+In the examples, so far, all of the variable have had a default declared. If there is no default value, Terraform will prompt you at run time for the value. 
 
 Add the following to `variables.tf`
 ```hcl
