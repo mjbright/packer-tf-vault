@@ -93,6 +93,11 @@ initial version:
   - modules/aws-instance/variables.tf, outputs.tf, main.tf
     => use local module
 
+## Updates
+- Corrected aws_region (in variables.tf) to "us-west-1" as per initial main.tf
+
+TODO: Add schema of topology ...
+
 # Terraform Lab 4 ==> labs/tf-even-more-variables/index.md <==
 
 # Terraform Lab 5 ==> labs/tf-remote-state/index.md <==
