@@ -78,6 +78,8 @@ You must apply the new configuration before you can use these output values.
 
 Apply the configuration using `terraform apply`
 
+**Note:** you may choose to specify the instance_name variable on the command-line as for the previous apply if you wish to continue to use that value.
+
 Terraform now prints output values to the screen every time you apply your configuration. Query the outputs using the `terraform output` command. 
 
 Output will be similar to: 
