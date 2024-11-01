@@ -22,7 +22,7 @@ terraform version
 ```
 
 ## Create Terraform configuration
-Create a directory for the lab 1 files:
+Create a directory for the tf-lab1 files:
 ```sh
 mkdir tf-lab1
 cd $_
@@ -43,7 +43,7 @@ provider "aws" {
   region  = "us-west-2"
 }
 
-resource "aws_instance" "lab1-tf-example" {
+resource "aws_instance" "tf-example" {
   ami           = "ami-830c94e3"
   instance_type = "t2.micro"
 
@@ -69,7 +69,7 @@ You can optional specify a `profile` attribute in your provider block. This attr
 The `resource` block defines infrastructure you want to create. This resource can be can be a physical component like an EC2 instance, GCP VM, or VMware machine, or it can be logical like a Heroku application. 
 
 Our resource block has two strings before the block: a resource type, and resource name. 
-In the above example, the type is `aws_instance` and the name is `lab1-tf-example`. This prefix of type maps to the provider. The `aws_instance` type tells Terraform it is managed by the `aws` provider.
+In the above example, the type is `aws_instance` and the name is `tf-example`. This prefix of type maps to the provider. The `aws_instance` type tells Terraform it is managed by the `aws` provider.
 
 We provide configuration data for our resource inside the resource block. These arguments are for things like machine size, image, VPC IDs, ssh username etc. 
 
@@ -158,7 +158,7 @@ This output shows the execution plan, describing which actions Terraform will ta
 
 Run `terraform apply`
 
-The output has a + next to `aws_instance.lab1-tf-example`, meaning that Terraform will create this resource. Beneath that, it shows the attributes that will be set. When the value displayed is (known after apply), it means that the value won't be known until the resource is created.
+The output has a + next to `aws_instance.tf-example`, meaning that Terraform will create this resource. Beneath that, it shows the attributes that will be set. When the value displayed is (known after apply), it means that the value won't be known until the resource is created.
 
 Terraform will now pause and wait for your approval before proceeding. If anything in the plan seems incorrect or dangerous, it is safe to abort here with no changes made to your infrastructure.
 
