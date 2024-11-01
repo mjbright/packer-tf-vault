@@ -124,7 +124,9 @@ You should see output like:
                     └── linux_amd64 -> /home/student/dot.terraform/registry.terraform.io/hashicorp/aws/5.74.0/linux_amd64
 ```
 
-As you can see above Terraform download the aws provider from the official Hashicorp registry. 
+As you can see in the above output Terraform downloaded the aws provider from the official Hashicorp registry. 
+
+**Note:** The Providers are frequently updated, so you will probably not see the exact ```5.74.0``` version  above.
 
 ## Format and validate configuration 
 Terraform includes a `fmt` argument to ensure consistent formatting in files and modules written by different teams. It automatically updates configurations for easy readability and consistency. 
