@@ -22,7 +22,7 @@ Create a new file called `variables.tf` with a block that defines a new `instanc
 variable "instance_name" {
   description    = "Name tag for EC2 instance"
   type           = string
-  default        = "Lab2-TF-example"
+  default        = "TF-example-2"
 }
 ```
 
@@ -34,10 +34,10 @@ Now update the `main.tf` `aws_instance` resource block to use our new variable.
   }
 ```
 
-We also need to update the resource name in `main.tf` to `lab2-tf-example`
+We also need to update the resource name in `main.tf` to `tf-example-2`
 ```
 ..snip
-resource "aws_instance" "lab2-tf-example" {
+resource "aws_instance" "tf-example-2" {
   ami           = "ami-830c94e3"
   ..snip
 }
@@ -64,12 +64,12 @@ Create a file called `outputs.tf` to output the instance's ID and Public IP addr
 ```hcl
 output "instance_id" {
   description    = "ID of the EC2 instance"
-  value          = aws_instance.lab2-tf-example.id
+  value          = aws_instance.tf-example-2.id
 }
 
 output "instance_public_ip" {
   description   = "Public IP address of EC2 instance"
-  value       = aws_instance.lab2-tf-example.public_ip
+  value       = aws_instance.tf-example-2.public_ip
 }
 ```
 
