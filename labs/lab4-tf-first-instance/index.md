@@ -85,12 +85,10 @@ Terraform uses a plugin-based architecture to support hundreds of infrastructure
 Output will be similar to: 
 ```
 Initializing the backend...
-
 Initializing provider plugins...
 - Finding latest version of hashicorp/aws...
-- Installing hashicorp/aws v3.34.0...
-- Installed hashicorp/aws v3.34.0 (signed by HashiCorp)
-
+- Installing hashicorp/aws v5.74.0...
+- Installed hashicorp/aws v5.74.0 (signed by HashiCorp)
 Terraform has created a lock file .terraform.lock.hcl to record the provider
 selections it made above. Include this file in your version control repository
 so that Terraform can guarantee to make the same selections by default when
@@ -117,14 +115,13 @@ tree .terraform/
 
 You should see output like: 
 ```
-.terraform/
+.terraform
 └── providers
     └── registry.terraform.io
         └── hashicorp
             └── aws
-                └── 3.34.0
-                    └── linux_amd64
-                        └── terraform-provider-aws_v3.34.0_x5
+                └── 5.74.0
+                    └── linux_amd64 -> /home/student/dot.terraform/registry.terraform.io/hashicorp/aws/5.74.0/linux_amd64
 ```
 
 As you can see above Terraform download the aws provider from the official Hashicorp registry. 
