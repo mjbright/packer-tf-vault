@@ -48,7 +48,7 @@ resource "aws_instance" "tf-example" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "Lab1-TF-example"
+    Name = "TF-example"
   }
 }
 ```
