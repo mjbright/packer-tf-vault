@@ -83,13 +83,15 @@ sudo ./aws/install
 
 initial version:
 - variables.tf, outputs.tf
+- terraform.tfvars
 - main.tf
-  - terraform, provider "aws", data "aws_availability_zones" "available", resource "random_string" "lb_id",
+  - terraform, provider "aws"
+  - data "aws_availability_zones" "available" => get available zones
+  - resource "random_string" "lb_id"          => obtain partly randomized lb name
   - module "vpc", module "app_security_group", module "lb_security_group", module "elb_http", module "ec2_instances"
-- modules/aws-instance/variables.tf, outputs.tf, main.tf
-
-
-terraform.tfvars
+    => use various modules from terraform registry (terraform-aws-modules ...)
+  - modules/aws-instance/variables.tf, outputs.tf, main.tf
+    => use local module
 
 # Terraform Lab 4 ==> labs/tf-even-more-variables/index.md <==
 
