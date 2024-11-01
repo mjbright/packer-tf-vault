@@ -5,7 +5,9 @@ This file lists any environment specifics, or preparation notes which may be imp
 
 Labs run not in AWS CloudShell but from a local VM.
 
-# Lab 1: Build Packer image
+# ======= Packer Labs ===========================================
+
+# Packer Lab 1 ==> labs/packer-build/index.md <== Lab 1: Build Packer image
 
 ## Updates
 
@@ -27,7 +29,12 @@ sudo ./aws/install
 
 - Create a subnet on the default vpc: ```aws ec2 create-default-subnet --availability-zone us-east-1a```
 
-# Lab 2: Packer Provisioners
+## LAB FILES:
+- packer/lab1/plugin.pkr.hcl   => github.com/hashicorp/amazon
+- packer/lab1/example.pkr.hcl  => var, source, build block (with shell provisioner)
+- packer/lab1/lab1.build.1.txt => Notes on awscli, packer installation, packer build invocation
+
+# Packer Lab 2 ==> labs/packer-provisioner/index.md <== Lab 2: Packer Provisioners
 
 ## Updates
 
@@ -41,13 +48,66 @@ sudo ./aws/install
 - Remove references to welcome.txt, example.sh
 - Add provisioner block to aws-redis.pkg.hcl
 
-# Lab 3: Packer Variables
+## LAB FILES:
+- firstrun.pkr.hcl => initial basic version using example.sh/welcome.txt
+- redis-server.pkr.hcl => uses provisioner to install redis-server (use of DEBIAN_NONINTERACTIVE env var)
+
+# Packer Lab 3 ==> labs/packer-variables/index.md <== Lab 3: Packer Variables
 
 ## Updates
 
 - Made text more explicit about use of *.auto.pkrvars.hcl files (and use of "packer build .")
 
+## LAB FILES:
+- redis-server.pkr.hcl
+- redis-server.auto.pkrvars.hcl
+- redis-server.pkr.hcl
 
+- packer/tf.test: outputs.tf vars.tf, provider.tf, terraform.tfvars, main_securitygroup.tf, main.tf
+
+# ======= Terraform Labs ===========================================
+
+# Terraform Lab 1 ==> labs/tf-first-instance/index.md <==
+
+## LAB FILES: terraform/tf-lab1
+- main.tf => terraform (aws), provider "aws", resource "aws_instance" "lab1-tf-example" blocks
+
+# Terraform Lab 2 ==> labs/tf-variables-and-output/index.md <==
+
+## LAB FILES: terraform/tf-lab2
+- main.tf (as lab1, with Name tag from variable), variables.tf (tag), - outputs.tf (2 simple examples)
+
+# Terraform Lab 3 ==> labs/tf-more-variables/index.md <==
+
+## LAB FILES: terraform/tf-lab3, lab3 & lab4
+
+initial version:
+- variables.tf, outputs.tf
+- main.tf
+  - terraform, provider "aws", data "aws_availability_zones" "available", resource "random_string" "lb_id",
+  - module "vpc", module "app_security_group", module "lb_security_group", module "elb_http", module "ec2_instances"
+- modules/aws-instance/variables.tf, outputs.tf, main.tf
+
+
+terraform.tfvars
+
+# Terraform Lab 4 ==> labs/tf-even-more-variables/index.md <==
+
+# Terraform Lab 5 ==> labs/tf-remote-state/index.md <==
+
+# Terraform Lab 6 ==> labs/tf-import/index.md <==
+
+# Terraform Lab 7 ==> labs/tf-provisioner/index.md <==
+
+# Terraform Lab 8 ==> labs/tf-module/index.md <==
+
+# Terraform Lab 9 ==> labs/tf-write-module/index.md <==
+
+# ======= Vault Labs ===========================================
+
+# Vault Policies ==> labs/vault-policies/index.md <==
+
+# Vault Secrets ==> labs/vault-secrets/index.md <==
 
 
 
