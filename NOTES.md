@@ -27,6 +27,7 @@ sudo ./aws/install
 
 - export AWS_DEFAULT_REGION=us-east-1
 
+- Create a default vpc:               ```aws ec2 create-default-vpc```
 - Create a subnet on the default vpc: ```aws ec2 create-default-subnet --availability-zone us-east-1a```
 
 ## LAB FILES:
