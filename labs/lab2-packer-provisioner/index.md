@@ -135,6 +135,15 @@ By default, each provisioner is run for every builder defined. So if we had two 
 The one provisioner we defined has a type of shell. This provisioner ships with Packer and runs shell scripts on the running machine. In our case, we specify two inline commands to run in order to install Redis.
 
 ### Build
+
+This time we will change the CUSTOM_AMI_NAME variable to prevent a conflict with our ```firstrun-provisioner``` image.
+
+Set the following environment variable:
+
+```
+export CUSTOM_AMI_NAME="redis-provisioner"
+```
+
 With the provisioner configured, give it a pass once again through `packer validate` to verify everything is okay, then build it using `packer build redis-server.pkr.hcl`. The output should look similar to when you built your first image, except this time there will be a new step where the provisioning is run.
 
 The output from the provisioner is too verbose to include in this tutorial, since it contains all the output from the shell scripts. But you should see Redis successfully install. After that, Packer once again turns the machine into an AMI.
