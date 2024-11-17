@@ -2,7 +2,7 @@
 
 ## Lab objectives: 
 * Introduce provisioners
-* Update template to use new provisioners   
+* Create firstrun.pkr.hcl template to use provisioners   
 
 ### Using provisioners   
 Create and enter your working directory: 
