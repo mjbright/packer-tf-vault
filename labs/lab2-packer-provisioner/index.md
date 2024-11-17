@@ -44,7 +44,7 @@ variable "region" {
 # build blocks. A build block runs provisioners and post-processors on a
 # source.
 source "amazon-ebs" "aws-redis" {
-  ami_name      = "packer-linux-aws-redis"
+  ami_name      = "${ var.ami_name }"
   instance_type = "t2.micro"
   region        = "${var.region}"
   source_ami_filter {

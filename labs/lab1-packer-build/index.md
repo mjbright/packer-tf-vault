@@ -71,7 +71,7 @@ locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
 # build blocks to create resources. A build block runs provisioners and
 # post-processors on an instance created by the source.
 source "amazon-ebs" "example" {
-  ami_name      = "packer example ${local.timestamp}"
+  ami_name      = "${ var.ami_name } ${ local.timestamp }"
   instance_type = "t2.micro"
   region        = "us-east-1"
   source_ami_filter {
@@ -97,6 +97,8 @@ This is a basic template that is ready-to-go. The source block configures a spec
 In this case, we're only configuring a single builder of type amazon-ebs. This is the Amazon EC2 AMI builder that ships with Packer. This builder builds an EBS-backed AMI by launching a source AMI, provisioning on top of that, and re-packaging it into a new AMI.
 
 The additional keys within the source block are configuration for this builder, specifying things such as the instance type to launch, the source AMI to build from and more. The exact set of configuration variables available for a builder are specific to each builder and can be found within the documentation.
+
+**Note:** that we set the ami_name argument of the source block to use the ```var.ami_name``` variable and also the ```local.timestamp``` value.
 
 ### Validate Template
 Before we take this template and build an image from it, let's validate the template by running `packer validate example.pkr.hcl`. This command checks the syntax as well as the configuration values to verify they look valid. If the template is valid, there should not be any output. If there are any errors, this command will tell you.
