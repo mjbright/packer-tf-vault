@@ -45,7 +45,11 @@ This file specifies that the build we will perform requires the Amazon plugin to
 
 ### Download the AWS plugin
 
-Run the command ```packer init plugin.pkr.hcl``` to download the specified plugin.
+Run the command
+
+```packer init plugin.pkr.hcl```
+
+to download the specified plugin.
 
 Packer requires this to be able to interact with AWS.
 
