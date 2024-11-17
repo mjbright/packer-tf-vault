@@ -1,8 +1,9 @@
 # Packer Lab 3
 
 ## Lab objectives: 
-* Update template to use new variables
-* Provide images to builder through various means
+* Update template to use new var.ami_prefix and local.timestamp variables
+* Provide image names to builder through various means
+
 
 ### Update template to use variables
 
