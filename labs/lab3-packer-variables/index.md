@@ -45,7 +45,7 @@ In your Packer template, update your source block to reference the `ami_prefix` 
 
 ```hcl
 source "amazon-ebs" "ubuntu" {
--  ami_name      = "packer-linux-aws-redis"
+-  ami_name      = "${var.ami_name}"
 +  ami_name      = "${var.ami_prefix}-${local.timestamp}"
    ## ...
 }
