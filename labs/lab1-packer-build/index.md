@@ -122,3 +122,11 @@ At the end of running `packer build`, Packer outputs the artifacts that were cre
 Artifacts are the results of a build, and typically represent an ID (such as in the case of an AMI) or a set of files (such as for a VMware virtual machine). In this example, we only have a single artifact: the AMI in us-east-1 that was created.
 
 This AMI is ready to use. If you wanted you could go and launch this AMI right now and it would work great.
+
+### Verify that the image was created
+
+You can list images which you own with the following command:
+
+```aws ec2 describe-images --owner self --output text --region us-east-1 ```
+
+
