@@ -43,6 +43,12 @@ packer {
 
 This file specifies that the build we will perform requires the Amazon plugin to be able to use resources in the AWS Cloud.
 
+### Download the AWS plugin
+
+Run the command ```packer init plugin.pkr.hcl``` to download the specified plugin.
+
+Packer requires this to be able to interact with AWS.
+
 #### The Build Specification
 
 Create a file `example.pkr.hcl` and fill it with the following contents:
@@ -87,7 +93,6 @@ This is a basic template that is ready-to-go. The source block configures a spec
 In this case, we're only configuring a single builder of type amazon-ebs. This is the Amazon EC2 AMI builder that ships with Packer. This builder builds an EBS-backed AMI by launching a source AMI, provisioning on top of that, and re-packaging it into a new AMI.
 
 The additional keys within the source block are configuration for this builder, specifying things such as the instance type to launch, the source AMI to build from and more. The exact set of configuration variables available for a builder are specific to each builder and can be found within the documentation.
-
 
 ### Validate Template
 Before we take this template and build an image from it, let's validate the template by running `packer validate example.pkr.hcl`. This command checks the syntax as well as the configuration values to verify they look valid. If the template is valid, there should not be any output. If there are any errors, this command will tell you.
