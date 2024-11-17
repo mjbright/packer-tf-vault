@@ -49,7 +49,7 @@ source "amazon-ebs" "aws-redis" {
   region        = "${var.region}"
   source_ami_filter {
     filters = {
-      name                = "ubuntu/images/*ubuntu-noble-24.04-amd64-server-*"
+      name                = "ubuntu/images/*ubuntu-focal-20.04-amd64-server-*"
       root-device-type    = "ebs"
       virtualization-type = "hvm"
     }
