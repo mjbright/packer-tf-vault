@@ -28,14 +28,15 @@ Create three EC2 instances in the AWS Console.
 
 ![ec2 search](images/ec2_search.png)
 2. In the EC2 dashboard click `instances`, and then `Launch instances`. 
-3. In the list, select the top "Amazon Linux" AMI. 
+3. At the top of the page in the ```Name and Tags``` box change Key to ```role``` and set Value to ```terraform```.
+4. In the ```Application and OS Images (Amazon Machine Image)``` box, select the ```Amazon Linux``` image
+<!-- ![aws-ami](images/aws_ami.png) -->
 
-![aws-ami](images/aws_ami.png)
-4. Select the `t2.micro` instance type, click `Next: Configure Instance Details`, and set `Number of instances` to 3, leave defaults for all other options. 
-5. Click `Next: Add Storage`, and accept defaults 
-6. Click `Next:Add Tags` and add Key `role` and Value `terraform`. 
-7. Click `Review and Launch`
-8. Click `Launch` 
+5. Keep the ```t2.micro``` instance type
+6. Keep the proposed Storage settings
+7. In the ```Summary``` box at the bottom of the page, set the number of instances to 3
+8. Click `Review and Launch`
+9. Click `Launch` 
 
 ## Create Terraform configuration 
 While waiting for the instances to launch create a new working directory and configuration file. 
