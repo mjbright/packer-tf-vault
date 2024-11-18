@@ -41,7 +41,7 @@ Create three EC2 instances in the AWS Console.
 ## Create Terraform configuration 
 While waiting for the instances to launch create a new working directory and configuration file. 
 ```sh
-mkdir tf-lab4
+mkdir tf-lab6
 ```
 Inside the new directory create a `main.tf` file and add a resource with the following attributes:
 - type: `aws_instance`
@@ -51,12 +51,26 @@ Inside the new directory create a `main.tf` file and add a resource with the fol
 - count: `3`
 - tags: `Name: TF-example-import`, `role: terraform`
 
+You might want to look at the ```tf-lab2``` example to help here.
+
 Remember this resource block is for three instances. You will need to add the `count.index` to the `Name` tag. If you get stuck ask the instructor for assistance.
 
 ## Import the configuration 
 Now that you've created the instances and the Terraform configuration, use the `terraform import` command to import the existing instances. 
 
 If you get stuck check the help page `terraform import --help` or the [terraform documentation](https://www.terraform.io/docs/cli/import/index.html)
+
+## Verify the configuration 
+
+Use the
+
+```terraform state list```
+
+and 
+
+```terraform state show <instance>```
+
+commands to verify that the imports worked
 
 
 
