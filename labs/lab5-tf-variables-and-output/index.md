@@ -104,4 +104,10 @@ Destroy the infrastructure you created
 terraform destroy -auto-approve
 ```
 
+Remove the ```.terraform``` directory containing the AWS plugin to prevent disk-space issues:
+```
+rm -rf .terraform/
+```
+
+
 # Congrats!

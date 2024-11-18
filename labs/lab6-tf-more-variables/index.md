@@ -8,7 +8,10 @@ Input variables make Terraform configurations more flexible by defining values t
 **NOTE: If you run out of disk space remove the `.terraform` directory from previous labs**
 
 ## Setup lab files 
-Under our working directory create a `tf-lab3` directory:
+
+**NOTE: If you run out of disk space remove the `.terraform` directory from previous labs**
+
+Under our ```terraform``` working directory create a `tf-lab3` directory:
 ```sh
 mkdir tf-lab3 
 cd $_
@@ -115,5 +118,11 @@ Destroy the infrastructure you created
 ```sh
 terraform destroy -auto-approve
 ```
+
+Remove the ```.terraform``` directory containing the AWS plugin to prevent disk-space issues:
+```
+rm -rf .terraform/
+```
+
 
 # Congrats!
