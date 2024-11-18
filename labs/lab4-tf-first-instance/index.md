@@ -6,7 +6,7 @@ This lab walks through setting up Terraform and creating your first resources.
 ## Install Terraform 
 Create and enter the working directory:
 ```sh
-mkdir -p $HOME/LABS/terraform
+mkdir -p $HOME/LABS/terraform/tf-lab1
 cd $_
 ```
 The AWS CloudShell does not have Terraform installed. To install the latest version run the following: 
@@ -23,12 +23,6 @@ Confirm installation was successful
 terraform version 
 ```
 
-## Create Terraform configuration
-Create a directory for the tf-lab1 files:
-```sh
-mkdir tf-lab1
-cd $_
-```
 Terraform loads all files in the working directory that end in `.tf`.
 
 Create a `main.tf` file with the following: 

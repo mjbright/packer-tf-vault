@@ -5,18 +5,19 @@ In this lab you will create an S3 bucket and migrate the Terraform state to a re
 
 ## Lab Setup
 
-From the previous ```terraform/tf-lab4/learn-terraform-variables``` folder copy the contents to a new folder tf-lab5 as follows:
+Copy the previous ```terraform/tf-lab4/learn-terraform-variables``` folder to a new folder tf-lab5 as follows:
 
 ```sh
 
-mkdir -p      ../../tf-lab5/
-cp -a    $PWD ../../tf-lab5/
+mkdir -p   ~/LABS/terraform/tf-lab5
+
+cp -a      ~/LABS/terraform/tf-lab4/learn-terraform-variables ~/LABS/terraform/tf-lab5/
 ```
 
 Then move to that new folder:
 
 ```sh
-cd ../../tf-lab5/learn-terraform-variables
+cd ~/LABS/terraform/tf-lab5/learn-terraform-variables
 ```
 
 

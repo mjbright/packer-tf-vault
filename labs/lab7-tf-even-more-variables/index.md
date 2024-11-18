@@ -9,9 +9,9 @@ The following steps continue where the previous lab left off.
 
 **NOTE: If you run out of disk space remove the `.terraform` directory from previous labs**
 
-Under our ```terraform``` working directory create a `tf-lab3` directory:
+Under our ```terraform``` working directory create a `tf-lab4` directory:
 ```sh
-mkdir tf-lab4
+mkdir ~/LABS/terraform/tf-lab4
 cd $_
 ```
 

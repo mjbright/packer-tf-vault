@@ -22,7 +22,7 @@ Now use modules to create an example AWS environment using a Virtual Private Clo
 Create ```tf-lab8``` working directory under the ```terraform``` directory as previously
 
 ```sh
-mkdir tf-lab8
+mkdir ~/LABS/terraform/tf-lab8
 cd $_
 ```
 Clone the GitHub repository.

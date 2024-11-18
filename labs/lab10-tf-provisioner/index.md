@@ -7,18 +7,17 @@ Provisioners allow you to run shell scripts on the local machine, or remote reso
 
 ## Lab Setup
 
-From the previous ```terraform/tf-lab6/``` folder copy the contents to a new folder tf-lab7 as follows:
+Copy the previous ```terraform/tf-lab6``` folder to a new folder tf-lab7 as follows:
 
 ```sh
+cp -a      ~/LABS/terraform/tf-lab6 ~/LABS/terraform/tf-lab7
 
-mkdir -p      ../tf-lab7
-cp -a    $PWD ../tf-lab7
 ```
 
 Then move to that new folder:
 
 ```sh
-cd ../tf-lab7
+cd ~/LABS/terraform/tf-lab7
 ```
 
 

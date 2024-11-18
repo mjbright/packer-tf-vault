@@ -5,20 +5,14 @@ In this lab you will create some AWS resources using the console, and then impor
 
 ## Lab Setup
 
-From the previous ```terraform/tf-lab5/learn-terraform-variables``` folder copy the contents to a new folder tf-lab6 as follows:
+Create a new folder for tf-lab6, then move to that new folder:
 
 ```sh
 
-mkdir -p      ../../tf-lab6
-cp -a    $PWD ../../tf-lab6
+mkdir -p   ~/LABS/terraform/tf-lab6
+
+cd         ~/LABS/terraform/tf-lab6
 ```
-
-Then move to that new folder:
-
-```sh
-cd ../../tf-lab6/
-```
-
 
 
 ## Create instances in AWS Console

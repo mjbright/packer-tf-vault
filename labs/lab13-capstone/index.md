@@ -3,6 +3,15 @@
 ## Overview
 This lab will combine all of the things learned throughout this class. You will not be given step-by-step instructions and will need to do some research on your own. 
 
+## Lab Setup
+
+Make a new lab folder tf-lab10
+
+```sh
+mkdir -p ~/LABS/terraform/tf-lab10
+cd $_
+```
+
 ## Packer
 Use what you've learned over the course of this class to create a packer image with a template that uses provisioners to install the `httpd` package. 
 

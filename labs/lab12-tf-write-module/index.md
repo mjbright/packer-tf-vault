@@ -34,10 +34,12 @@ You also want to make sure and add the following to your ignore list. If you are
 
 This lab continues with the same configuration as the last one. 
 
-Enter the directory
+Make a copy of tf-lab5
 
 ```sh
-cd tf-lab5/learn-terraform-modules
+cp -a ~/LABS/terraform/tf-lab5 ~/LABS/terraform/tf-lab9
+
+cd ~/LABS/terraform/tf-lab9/learn-terraform-modules
 ```
 
 Ensure that Terraform has downloaded all the necessary providers and modules by initializing it.
