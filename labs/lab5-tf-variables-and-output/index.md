@@ -6,7 +6,7 @@ In this lab you will update the existing `main.tf` file to use variables.
 **NOTE: If you run out of disk space remove the `.terraform` directory from previous labs**
 
 ## Set the instance name with a variable
-Under our working directory create a `tf-lab2` directory and copy `main.tf` to our new directory: 
+Under our ```terraform``` working directory create a `tf-lab2` directory and copy `main.tf` to our new directory: 
 ```sh
 mkdir tf-lab2 
 cd $_
@@ -42,6 +42,13 @@ resource "aws_instance" "tf-example-2" {
   ..snip
 }
 ```
+
+Be sure that you already deleted the ```.terraform/``` folder of the previous lab, then perform terraform init to download the AWS plugin locally:
+
+```sh
+terraform init
+```
+
 After updating the resource block to use the new variable apply the configuration 
 
 ```sh
