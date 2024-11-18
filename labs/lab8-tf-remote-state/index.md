@@ -3,6 +3,23 @@
 ## Overview 
 In this lab you will create an S3 bucket and migrate the Terraform state to a remote backend. 
 
+## Lab Setup
+
+From the previous ```terraform/tf-lab4/learn-terraform-variables``` folder copy the contents to a new folder tf-lab5 as follows:
+
+```sh
+
+mkdir -p      ../../tf-lab5/
+cp -a    $PWD ../../tf-lab5/
+```
+
+Then move to that new folder:
+
+```sh
+cd ../../tf-lab5/learn-terraform-variables
+```
+
+
 ## Create an S3 bucket 
 AWS requires every S3 bucket to have a unique name. For this reason add your initials to the end of the bucket. The example below uses `jrs` as the initials.
 

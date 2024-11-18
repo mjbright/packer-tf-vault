@@ -364,3 +364,5 @@ Now test the validation rules by specifying an environment tag that is too long.
 terraform apply -var='resource_tags={project="my-project",environment="development"}'
 ```
 
+**Do not** clean up as we will reuse this configuration and state in the next lab
+
