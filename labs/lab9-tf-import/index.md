@@ -3,6 +3,24 @@
 ## Overview
 In this lab you will create some AWS resources using the console, and then import them into Terraform management. 
 
+## Lab Setup
+
+From the previous ```terraform/tf-lab5/learn-terraform-variables``` folder copy the contents to a new folder tf-lab6 as follows:
+
+```sh
+
+mkdir -p      ../../tf-lab6/
+cp -a    $PWD ../../tf-lab6/
+```
+
+Then move to that new folder:
+
+```sh
+cd ../../tf-lab6/learn-terraform-variables
+```
+
+
+
 ## Create instances in AWS Console
 Create three EC2 instances in the AWS Console. 
 
