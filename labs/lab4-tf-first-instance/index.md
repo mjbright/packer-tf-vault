@@ -179,9 +179,15 @@ At this step we cannot connect to the virtual machine as we have not yet opened 
 
 
 # Cleanup
+
 Destroy the infrastructure you created 
 ```sh
 terraform destroy -auto-approve
+```
+
+Remove the ```.terraform``` directory containing the AWS plugin to prevent disk-space issues:
+```
+rm -rf .terraform/
 ```
 
 # Congrats! 
