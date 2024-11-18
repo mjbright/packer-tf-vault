@@ -9,14 +9,14 @@ From the previous ```terraform/tf-lab5/learn-terraform-variables``` folder copy 
 
 ```sh
 
-mkdir -p      ../../tf-lab6/
-cp -a    $PWD ../../tf-lab6/
+mkdir -p      ../../tf-lab6
+cp -a    $PWD ../../tf-lab6
 ```
 
 Then move to that new folder:
 
 ```sh
-cd ../../tf-lab6/learn-terraform-variables
+cd ../../tf-lab6/
 ```
 
 
@@ -39,11 +39,9 @@ Create three EC2 instances in the AWS Console.
 9. Click the ```Launch Instance``` button at the bottom of the page
 
 ## Create Terraform configuration 
-While waiting for the instances to launch create a new working directory and configuration file. 
-```sh
-mkdir tf-lab6
-```
-Inside the new directory create a `main.tf` file and add a resource with the following attributes:
+While waiting for the instances to launch create a new configuration file. 
+
+Inside the ```tf-lab6``` directory create a `main.tf` file and add a resource with the following attributes:
 - type: `aws_instance`
 - name: `tf-example-import`
 - ami: AMI from instances created above
@@ -71,6 +69,17 @@ and
 ```terraform state show <instance>```
 
 commands to verify that the imports worked
+
+# Cleanup
+
+**Do not** destroy the infrastructure as we will re-use it in the next lab
+
+**Do** remove the ```.terraform``` directory containing the AWS plugin to prevent disk-space issues:
+```
+rm -rf .terraform/
+```
+
+# Congrats!
 
 
 

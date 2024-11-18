@@ -7,24 +7,24 @@ Provisioners allow you to run shell scripts on the local machine, or remote reso
 
 ## Lab Setup
 
-From the previous ```terraform/tf-lab6/learn-terraform-variables``` folder copy the contents to a new folder tf-lab7 as follows:
+From the previous ```terraform/tf-lab6/``` folder copy the contents to a new folder tf-lab7 as follows:
 
 ```sh
 
-mkdir -p      ../../tf-lab7/
-cp -a    $PWD ../../tf-lab7/
+mkdir -p      ../tf-lab7
+cp -a    $PWD ../tf-lab7
 ```
 
 Then move to that new folder:
 
 ```sh
-cd ../../tf-lab7/learn-terraform-variables
+cd ../tf-lab7
 ```
 
 
 
 ## Add provisioners
-This lab updates the `main.tf` in the `tf-lab4` directory. 
+Update the ```main.tf``` config as follows:
 
 Add a `local-exec` provisioner with the following attributes: 
 - command: Echo the public IP addresses into a file named `public_ips.txt`
@@ -36,6 +36,11 @@ Add another `local-exec` provisioner with the following attributes:
 Destroy the infrastructure you created
 ```sh
 terraform destroy -auto-approve
+```
+
+Remove the ```.terraform``` directory containing the AWS plugin to prevent disk-space issues:
+```
+rm -rf .terraform/
 ```
 
 # Congrats! 

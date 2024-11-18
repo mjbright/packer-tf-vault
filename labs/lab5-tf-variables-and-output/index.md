@@ -8,7 +8,7 @@ In this lab you will update the existing `main.tf` file to use variables.
 ## Set the instance name with a variable
 Under our ```terraform``` working directory create a `tf-lab2` directory and copy `main.tf` to our new directory: 
 ```sh
-mkdir tf-lab2 
+mkdir -p ~/LABS/packer/tf-lab2
 cd $_
 cp ../tf-lab1/main.tf . 
 ```

@@ -19,9 +19,10 @@ Other arguments to module blocks are treated as input variables to the modules.
 ## Create Terraform configuration
 Now use modules to create an example AWS environment using a Virtual Private Cloud (VPC) and two EC2 instances.
 
-Create working directory
+Create ```tf-lab8``` working directory under the ```terraform``` directory as previously
+
 ```sh
-mkdir tf-lab5
+mkdir tf-lab8
 cd $_
 ```
 Clone the GitHub repository.
