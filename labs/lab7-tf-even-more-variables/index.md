@@ -18,7 +18,7 @@ cd $_
 Copy the ```.tf``` files from the previous lab to this lab (tf-lab4):
 
 ```sh
-cp ../tf-lab3/learn-terraform-variables/*.tf .
+cp ../tf-lab3/learn-terraform-variables .
 ```
 
 ## VPN gateway support
@@ -238,7 +238,7 @@ The hard-coded tags are used five times in this configuration, be sure to replac
 
 Apply these changes.
 
-The value of `project` tag has changed, so you will be prompted to apply the changes. Respond with `yes` to confirm the changes.
+<!-- The value of `project` tag has changed, so you will be prompted to apply the changes. Respond with `yes` to confirm the changes. -->
 
 ## Assign values when prompted
 In the examples, so far, all of the variable have had a default declared. If there is no default value, Terraform will prompt you at run time for the value. 
