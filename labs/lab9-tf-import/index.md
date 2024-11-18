@@ -33,10 +33,10 @@ Create three EC2 instances in the AWS Console.
 <!-- ![aws-ami](images/aws_ami.png) -->
 
 5. Keep the ```t2.micro``` instance type
-6. Keep the proposed Storage settings
-7. In the ```Summary``` box at the bottom of the page, set the number of instances to 3
-8. Click `Review and Launch`
-9. Click `Launch` 
+6. In the ```Key pair``` box select ```Proceed without a key pair```
+7. Keep the proposed Storage settings
+8. In the ```Summary``` box at the bottom of the page, set the number of instances to 3
+9. Click the ```Launch Instance``` button at the bottom of the page
 
 ## Create Terraform configuration 
 While waiting for the instances to launch create a new working directory and configuration file. 
