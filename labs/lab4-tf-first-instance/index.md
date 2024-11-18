@@ -12,8 +12,10 @@ cd $_
 The AWS CloudShell does not have Terraform installed. To install the latest version run the following: 
 ```sh
 TER_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/latest | grep tag_name | cut -d: -f2 | tr -d \"\,\v | awk '{$1=$1};1'`
+
 wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
-unzip terraform_${TER_VER}_linux_amd64.zip && mkdir -p $HOME/.local/bin && mv terraform $HOME/.local/bin/
+
+unzip terraform_${TER_VER}_linux_amd64.zip && mkdir -p $HOME/.local/bin && mv terraform $HOME/.local/bin/ && terraform_${TER_VER}_linux_amd64.zip
 ```
 
 Confirm installation was successful
