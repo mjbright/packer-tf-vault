@@ -51,6 +51,11 @@ Run the command
 
 to download the specified plugin.
 
+You should see output similar to:
+```
+Installed plugin github.com/hashicorp/amazon v1.3.3 in "/home/cloudshell-user/.config/packer/plugins/github.com/hashicorp/amazon/packer-plugin-amazon_v1.3.3_x5.0_linux_amd64"
+```
+
 Packer requires this to be able to interact with AWS.
 
 #### The Build Specification
