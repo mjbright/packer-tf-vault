@@ -37,7 +37,7 @@ variable "ami_name" {
 
 variable "region" {
   type    = string
-  default = "us-east-1"
+  default = "us-west-1"
 }
 
 # source blocks are generated from your builders; a source can be referenced in
