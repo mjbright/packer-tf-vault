@@ -167,6 +167,15 @@ Terraform will now pause and wait for your approval before proceeding. If anythi
 In this case the plan is acceptable, so type `yes` at the confirmation prompt to proceed. Executing the plan will take a few minutes since Terraform waits for the EC2 instance to become available.
 
 
+## Verification
+
+We can verify that the resource was created by running the command:
+
+```terraform state list```
+
+This should show that the ```aws_instance.example``` instance was indeed created.
+
+At this step we cannot connect to the virtual machine as we have not yet opened any ports.
 
 
 # Cleanup
