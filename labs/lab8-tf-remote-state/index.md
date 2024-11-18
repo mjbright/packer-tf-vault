@@ -23,7 +23,7 @@ cd ../../tf-lab5/learn-terraform-variables
 ## Create an S3 bucket 
 AWS requires every S3 bucket to have a unique name. For this reason add your initials to the end of the bucket. The example below uses `jrs` as the initials.
 
-In the `tf-lab3/learn-terraform-variables` directory create a new file `s3.tf` with the following: 
+In the `tf-lab5/learn-terraform-variables` directory create a new file `s3.tf` with the following: 
 
 ```hcl
 resource "aws_s3_bucket" "remote_state" {
@@ -54,7 +54,7 @@ Create `backend.tf` with the following:
 ```hcl
 terraform {
   backend "s3" {
-    region = "us-west-2"
+    region = "us-west-1"
     bucket = "remote-state-jrs"
     key = "state.tfstate"
   }
@@ -64,8 +64,36 @@ terraform {
 ## Reinitialize Terraform 
 Now that you have created the S3 bucket and configured the `backend.tf` you must run `terraform init` to migrate the state to the new remote backend. 
 
+```sh
+terraform init -migrate-state
+```
+
 If prompted to migrate the existing state type 'yes'
 
 If everything is successful you should see a message telling you the backend was migrated. 
 
+## Verification
+
+Note that the local ```terraform.tfstate``` file still exists but is now empty
+
+We can still interrogate the now remote state using the command
+
+```sh
+terraform state list
+```
+
+
+# Cleanup
+Destroy the infrastructure you created
+```sh
+terraform destroy -auto-approve
+```
+
+Remove the ```.terraform``` directory containing the AWS plugin to prevent disk-space issues:
+```
+rm -rf .terraform/
+```
+
+
+# Congrats!
 
