@@ -173,7 +173,7 @@ We can verify that the resource was created by running the command:
 
 ```terraform state list```
 
-This should show that the ```aws_instance.example``` instance was indeed created.
+This should show that the ```aws_instance.tf-example``` instance was indeed created.
 
 At this step we cannot connect to the virtual machine as we have not yet opened any ports.
 
