@@ -114,12 +114,23 @@ packer validate example.pkr.hcl
 If everything goes smoothly we can build the image! 
 
 ### Build an image
-With a properly validated template, it is time to build your first image. This is done by calling `packer build` with the template file. The output should look similar to below. Note that this process typically takes a few minutes.
+With a properly validated template, it is time to build your first image.
+This is done by calling `packer build` with the template file. The output should look similar to below.
+Note that this process typically takes a few minutes.
+
 ```bash
 packer build example.pkr.hcl
 ```
  
-You should see output similar to: 
+You should see output similar to that shown below.
+
+Spend the time to examine the output, noting
+- Launching of the aws_instance virtual machine
+- SSH connection to the virtual machine
+- Stopping of the virtual machine
+- Creation of the ```my-first-ami``` image
+- Terminating (marking for removal) of the virtual machine
+- Deletion of all temporary resources
 
 ![packer_output](images/packer_output.png)
 At the end of running `packer build`, Packer outputs the artifacts that were created as part of the build.
