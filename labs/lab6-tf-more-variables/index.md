@@ -13,7 +13,7 @@ Input variables make Terraform configurations more flexible by defining values t
 
 Under our ```terraform``` working directory create a `tf-lab3` directory:
 ```sh
-mkdir tf-lab3 
+mkdir -p ~/LABS/packer/tf-lab3
 cd $_
 ```
 
