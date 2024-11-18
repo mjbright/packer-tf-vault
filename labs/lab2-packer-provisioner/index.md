@@ -89,7 +89,16 @@ If you want to use a `source_ami` instead of a `source_ami_filter` it may look s
 source_ami = "ami-fceotj67
 ```
 
-After running your `packer build` you should see output stating the image was created successfully. Review the output and confirm the provisioners ran without error.
+After running your `packer build` you should see output stating the image was created successfully.
+
+Review the output and confirm the provisioners ran without error.
+
+Observe
+- the insertion of welcome.txt and example.sh files
+- the output of the ls command
+
+![packer_output](images/lab2build.png)
+
 
 ### Install packages
 We'll use the built-in shell provisioner that comes with Packer to install Redis.
