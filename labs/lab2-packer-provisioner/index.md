@@ -7,8 +7,8 @@
 ### Using provisioners   
 Create and enter your working directory: 
 ```sh
-mkdir -p ~/$(date +%Y%m%d)/packer/lab2
-cd ~/$(date +%Y%m%d)/packer/lab2
+mkdir -p ~/LABS/packer/lab2
+cd ~/LABS/packer/lab2
 ```
 Packer can customize your image using provisioners. This lab is going to introduce you to the `file` and `shell` provisioners.
 

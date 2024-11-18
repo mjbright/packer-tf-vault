@@ -6,7 +6,7 @@ This lab walks through setting up Terraform and creating your first resources.
 ## Install Terraform 
 Create and enter the working directory:
 ```sh
-mkdir -p $HOME/$(date +%Y%m%d)/terraform
+mkdir -p $HOME/LABS/terraform
 cd $_
 ```
 The AWS CloudShell does not have Terraform installed. To install the latest version run the following: 

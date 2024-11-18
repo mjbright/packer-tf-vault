@@ -11,8 +11,8 @@ In this section you will modify the template from the last lab to generate a uni
 
 Create and enter a new working directory
 ```sh
-mkdir -p ~/$(date +%Y%m%d)/packer/lab3
-cd ~/$(date +%Y%m%d)/packer/lab3
+mkdir -p ~/LABS/packer/lab3
+cd ~/LABS/packer/lab3
 ```
 
 - Copy the redis-server.pkr.hcl file from the lab2, into this lab3 directory.
