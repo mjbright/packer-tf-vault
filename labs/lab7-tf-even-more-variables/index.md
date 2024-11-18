@@ -3,7 +3,23 @@
 ## Overview 
 Terraform supports several variable types including bool, string and numbers.
 
-The following steps continue where the previous lab left off. The below changes should be applied in the `tf-lab3` directory.
+The following steps continue where the previous lab left off.
+
+## Setup lab files
+
+**NOTE: If you run out of disk space remove the `.terraform` directory from previous labs**
+
+Under our ```terraform``` working directory create a `tf-lab3` directory:
+```sh
+mkdir tf-lab4
+cd $_
+```
+
+Copy the ```.tf``` files from the previous lab to this lab (tf-lab4):
+
+```sh
+cp ../tf-lab3/*.tf .
+```
 
 ## VPN gateway support
 
