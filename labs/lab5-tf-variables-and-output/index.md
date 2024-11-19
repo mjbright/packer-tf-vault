@@ -38,7 +38,8 @@ We also need to update the resource name in `main.tf` to `tf-example-2`
 ```
 ..snip
 resource "aws_instance" "tf-example-2" {
-  ami           = "ami-830c94e3"
+  # us-west-2: ami           = "ami-830c94e3"
+  ami           = "ami-03420c5d8fd979bd3"
   ..snip
 }
 ```
