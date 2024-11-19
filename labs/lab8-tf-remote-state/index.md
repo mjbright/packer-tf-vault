@@ -22,7 +22,11 @@ cd ~/LABS/terraform/tf-lab5/learn-terraform-variables
 
 
 ## Create an S3 bucket 
-AWS requires every S3 bucket to have a unique name. For this reason add your initials to the end of the bucket. The example below uses `jrs` as the initials.
+AWS requires every S3 bucket to have a unique name.
+
+For this reason **add your initials to the end of the bucket**.
+
+The example below uses `jrs` as the initials.
 
 In the `tf-lab5/learn-terraform-variables` directory create a new file `s3.tf` with the following: 
 
@@ -49,7 +53,7 @@ Using Terraform apply the changes.
 ## Migrate the state
 Now that we've created an S3 bucket, we need to migrate the state to the remote backend. 
 
-When creating the backend configuration remember to replace the `bucket` with the name of the bucket you created. 
+When creating the backend configuration remember to **replace the `bucket` with the name of the bucket you created**. 
 
 Create `backend.tf` with the following:
 ```hcl
