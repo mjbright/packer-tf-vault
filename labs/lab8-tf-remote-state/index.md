@@ -94,6 +94,51 @@ Destroy the infrastructure you created
 terraform destroy -auto-approve
 ```
 
+## Destroy doesn't quite complete
+
+The destroy didn't successfully terminate because it couldn't delete the S3 bucket holding our state
+
+You will have seen output similar to:
+```
+aws_s3_bucket.remote_state: Destroying... [id=remote-state-mjb]
+╷
+│ Error: error deleting S3 Bucket (remote-state-mjb): BucketNotEmpty: The bucket you tried to delete is not empty
+│       status code: 409, request id: JHZ9NB6THXCH0NMZ, host id: s8AYyn3ADRh558XiphAIlhOyudeN49OCETWYaeKSW+s2dkk8oPbiRL+j03Juhu1lwV7686660Yo=
+```
+
+So we will now do the following steps
+- revert to using local state
+- mark the s3 as deletable even when not empty
+- perform an apply against the s3 target only
+- re-perform the destroy
+
+### Revert to using local state
+```
+mv backend.tf backend.tf.unused
+terraform init -migrate-state
+```
+
+### Mark the s3 bucket as deletable even when not empty
+
+Add the line ```force_destroy = true``` into the s3.tf file
+
+### Perform an apply against the s3 target only
+
+```terraform apply -target aws_s3_bucket.remote_state```
+
+This will apply the new parameter to the resource
+
+### Re-perform the destroy
+
+```terraform destroy```
+
+### Verify the state is now empty
+
+```terraform state list```
+
+
+## Cleanup .terraform/
+
 Remove the ```.terraform``` directory containing the AWS plugin to prevent disk-space issues:
 ```
 rm -rf .terraform/
