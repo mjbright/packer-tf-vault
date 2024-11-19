@@ -33,7 +33,17 @@ Add another `local-exec` provisioner with the following attributes:
 
 ## Apply the config
 
-Apply this new config and verify that the public_ips.txt and private_ips.txt files were created and contain the correct ip addresses.
+Unfortunately simply applying the config will not work - the ```local-exec``` provisioner will not be invoked.
+
+We must recreate the resources for this to take effect.
+
+So we will replace the resources with the following command to re-create the 3 vms:
+
+```
+terraform apply -replace aws_instance.tf-example-import[0] -replace aws_instance.tf-example-import[1] -replace aws_instance.tf-example-import[2]
+```
+
+Apply this config as above and then verify that the public_ips.txt and private_ips.txt files were created and contain the correct ip addresses.
 
 # Cleanup
 
