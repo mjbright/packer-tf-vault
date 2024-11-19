@@ -15,7 +15,7 @@ TER_VER=`curl -s https://api.github.com/repos/hashicorp/terraform/releases/lates
 
 wget https://releases.hashicorp.com/terraform/${TER_VER}/terraform_${TER_VER}_linux_amd64.zip
 
-unzip terraform_${TER_VER}_linux_amd64.zip && mkdir -p $HOME/.local/bin && mv terraform $HOME/.local/bin/ && terraform_${TER_VER}_linux_amd64.zip
+unzip terraform_${TER_VER}_linux_amd64.zip && mkdir -p $HOME/.local/bin && mv terraform $HOME/.local/bin/ && rm terraform_${TER_VER}_linux_amd64.zip
 ```
 
 Confirm installation was successful
