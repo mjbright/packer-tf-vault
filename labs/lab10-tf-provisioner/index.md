@@ -31,7 +31,12 @@ Add a `local-exec` provisioner with the following attributes:
 Add another `local-exec` provisioner with the following attributes: 
 - command: Echo the private IP addresses into a file named `private_ips.txt`
 
- # Cleanup
+## Apply the config
+
+Apply this new config and verify that the public_ips.txt and private_ips.txt files were created and contain the correct ip addresses.
+
+# Cleanup
+
 Destroy the infrastructure you created
 ```sh
 terraform destroy -auto-approve
