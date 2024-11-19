@@ -18,7 +18,7 @@ cd $_
 Copy the ```.tf``` files from the previous lab to this lab (tf-lab4):
 
 ```sh
-cp ../tf-lab3/learn-terraform-variables .
+cp -a ../tf-lab3/learn-terraform-variables .
 ```
 
 ## VPN gateway support
