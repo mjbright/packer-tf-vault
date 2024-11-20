@@ -32,6 +32,7 @@ sudo yum install -y bash-completion
 
 source <(kubectl completion bash)
 echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bash_profile
 ```
 
 ### Install eksctl
