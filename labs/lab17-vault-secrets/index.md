@@ -136,6 +136,13 @@ Key              Value
 created_time     2019-07-31T05:58:06.354642Z
 deletion_time    n/a
 destroyed        false
+
+====== Version 3 ======
+Key              Value
+---              -----
+created_time     2019-07-31T05:59:03.354642Z
+deletion_time    n/a
+destroyed        false
 ```
 
 ## Step 4: Specify the number of versions to keep
