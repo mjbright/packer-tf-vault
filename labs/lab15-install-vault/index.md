@@ -75,7 +75,7 @@ Copy the `Unseal Key` and `Root Token`, and save them for future labs.
 
 Open a new terminal window and SSH into the server. 
 
-**Note:** If working in the ```AWS CloudShell``` environment, you can create a new terminal by typing <ctrl-B> then 'c'
+**Note:** If working in the ```AWS CloudShell``` environment, you can create a new terminal by typing &lt;ctrl-B&gt; then 'c'
 
 In the new terminal export the following: 
 ```
