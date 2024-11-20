@@ -130,7 +130,7 @@ Key names must always be strings. If you write non-string values directly via th
 
 Let's write a secret to Key/Value v2 secrets engine when running a dev server. 
 
-Use the vault kv put <path> <key>=<value> command.
+Use the vault kv put &lt;path&gt; &lt;key&gt;=&lt;value&gt; command.
 
 ```
 vault kv put secret/hello foo=world
@@ -146,7 +146,7 @@ vault kv put secret/hello foo=world excited=yes
 Notice that the `version` is now `2`. The `vault kv put` command creates a new version of the secrets and replaces any pre-existing data at the path if any.
 
 
-After creating a secret we can retrieve it using the `vault kv get <path>` command. 
+After creating a secret we can retrieve it using the `vault kv get &lt;path&gt;` command. 
 
 For our example execute: 
 ```
@@ -172,7 +172,7 @@ excited    yes
 foo        world
 ```
 
-To print only the value of a given field, use the `-field=<key_name>` flag.   
+To print only the value of a given field, use the `-field=&lt;key_name&gt;` flag.   
 
 ```
 vault kv get -field=excited secret/hello
