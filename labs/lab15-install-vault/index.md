@@ -211,17 +211,23 @@ vault kv list secret
 
 You should see the ```hello``` secret is listed
 
-
 ```
-vault kv delete secret/hello
+vault kv delete -mount=secret hello
 ```
+<!-- old style: vault kv delete -mount=secret hello -->
 
 Then validate that the secret no longer exists.
 
 ```
 vault kv list secret
 ```
+
+**What happened?**
+
+Well in fact the key is still present, but if you perform a ```vault kv get secret/hello``` we see that there is no longer a value associated, only the metadata.
+
 You should see the ```hello``` secret is no longer listed
 
+**Note:** To delete all versions and metadata, see the "vault kv metadata" subcommand.
 
 # Congrats! 
