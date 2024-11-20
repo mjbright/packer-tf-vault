@@ -26,6 +26,14 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 chmod +x kubectl
 ```
 
+Enable bash autocompletion on kubectl
+```
+sudo yum install -y bash-completion
+
+source <(kubectl completion bash)
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+```
+
 ### Install eksctl
 Install the latest version of the `eksctl` tool
 ```sh
