@@ -20,14 +20,17 @@ cd $_
 
 ### Install kubectl
 ```sh
-curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+
 chmod +x kubectl
 ```
 
 ### Install eksctl
 Install the latest version of the `eksctl` tool
 ```sh
-curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+
 sudo mv /tmp/eksctl $HOME/.local/bin
 ```
 
@@ -48,6 +51,8 @@ Copy the key beginning at `-----BEGIN RSA PRIVATE KEY` and ending at `-----END R
 ### Create EKS cluster 
 **NOTE: This can take up to 20 minutes**
 ```sh
+cd $HOME
+
 eksctl create cluster \
     --name vault-demo \
     --nodes 3 \
