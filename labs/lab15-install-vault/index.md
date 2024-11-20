@@ -86,20 +86,14 @@ export VAULT_TOKEN=<token saved from previous step in lab>
 For example if running the vault server produced the following lines as part of it's output:
 ```
     Unseal Key: dW28I8tv4kzseZ3JUeQTPuDiAE7kGsfS2xRN1mVagAI=
-    Root Token: hvs.BDusSjf6UScNCplwrAuZWeSq
+    Root Token: just-an-example
 ```
 
 You would set variables as follows (**but replace with your root token**):
 
 ```
-Unseal Key: dW28I8tv4kzseZ3JUeQTPuDiAE7kGsfS2xRN1mVagAI=
-Root Token: hvs.BDusSjf6UScNCplwrAuZWeSq
-```
-
-
-```
     export VAULT_ADDR='http://0.0.0.0:8200'
-    export VAULT_TOKEN='hvs.BDusSjf6UScNCplwrAuZWeSq'
+    export VAULT_TOKEN='just-an-example'
 ```
 
 Confirm you can connect to Vault 
