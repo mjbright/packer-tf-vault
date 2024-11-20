@@ -91,6 +91,11 @@ Install the Driver Add-on:
     eksctl create addon --name aws-ebs-csi-driver --cluster $cluster_name --service-account-role-arn $SA_ROLE_ARN
 ```
 
+### Configure gp2 as default storage class
+
+```
+kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+```
 
 ### Install MySQL for Secrets backend 
 MySQL is a fast, reliable, scalable, and easy to use open-source relational database system. MySQL Server is intended for mission-critical, heavy-load production systems as well as for embedding into mass-deployed software.
@@ -103,7 +108,7 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 Install the latest version of the MySQL Helm chart.
 <!-- helm install mysql bitnami/mysql -->
 ```sh
-helm install mysql bitnami/mysql --set global.defaultStorageClass=gp2
+helm install mysql bitnami/mysql
 ```
 
 By default the MySQL Helm chart deploys a single pod a service.
