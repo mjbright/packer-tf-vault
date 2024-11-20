@@ -12,12 +12,13 @@ Download Vault binary
 wget https://releases.hashicorp.com/vault/1.18.1/vault_1.18.1_linux_amd64.zip
 ```
 
-Install `unzip`   
+Install `unzip`
 <!-- ``` sudo apt install -y unzip ``` or on yum systems: -->
 
 ```
 sudo yum install -y unzip
 ```
+Note: or use 'apt' on apt-based systems such as ubuntu
 
 Extract Vault   
 <!-- unzip vault_1.10.2_linux_amd64.zip -->
@@ -75,7 +76,7 @@ Copy the `Unseal Key` and `Root Token`, and save them for future labs.
 
 Open a new terminal window and SSH into the server. 
 
-**Note:** If working in the ```AWS CloudShell``` environment, you can create a new terminal by typing &lt;ctrl-B&gt; then 'c'
+**Note:** If working in the ```AWS CloudShell``` environment, you can create a new terminal by typing &lt;ctrl-b&gt; then 'c'
 
 In the new terminal export the following: 
 ```
@@ -182,9 +183,13 @@ Optional JSON output is very useful for scripts. For example, you can use the `j
 
 Install `jq`
 ```
+sudo yum install -y jq
+```
+<!--
 sudo apt update 
 sudo apt install -y jq
-```
+-->
+Note: or use 'apt' on apt-based systems such as ubuntu
 
 
 Pipe `vault kv get` output into `jq` to extract results.   
@@ -194,12 +199,29 @@ vault kv get -format=json secret/hello | jq -r .data.data.excited
 
 You can also view the secret in the UI by visiting the server's public IP address on port `8200`. 
 
+**Note:** If running in the ```AWS CloudShell``` we don't have access to that port.
+
 
 Now that you've learned how to read and write a secret, let's go ahead and delete it. You can do so using the `vault kv delete` command.
+
+First let's list what secrets are available:
+```
+vault kv list secret
+```
+
+You should see the ```hello``` secret is listed
+
 
 ```
 vault kv delete secret/hello
 ```
+
+Then validate that the secret no longer exists.
+
+```
+vault kv list secret
+```
+You should see the ```hello``` secret is no longer listed
 
 
 # Congrats! 
