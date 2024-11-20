@@ -6,28 +6,39 @@ This lab explains how to install and get started with Vault.
 ## Install Vault binary   
 
 Download Vault binary   
+<!-- wget https://releases.hashicorp.com/vault/1.10.2/vault_1.10.2_linux_amd64.zip -->
+
 ```
-wget https://releases.hashicorp.com/vault/1.10.2/vault_1.10.2_linux_amd64.zip
+wget https://releases.hashicorp.com/vault/1.18.1/vault_1.18.1_linux_amd64.zip
 ```
 
 Install `unzip`   
+<!-- ``` sudo apt install -y unzip ``` or on yum systems: -->
+
 ```
-sudo apt install -y unzip
+sudo yum install -y unzip
 ```
 
 Extract Vault   
+<!-- unzip vault_1.10.2_linux_amd64.zip -->
 ```
-unzip vault_1.10.2_linux_amd64.zip
+unzip vault_1.18.1_linux_amd64.zip
 ```
 
-Copy the binary into the `$PATH`   
+Move the binary into the `$PATH`   
+<!-- sudo cp vault /usr/local/bin/ -->
 ```
-sudo cp vault /usr/local/bin/
+sudo mv vault ~/.local/bin/
 ```
 
 Confirm Vault is installed correctly.   
 ```
 vault version
+```
+
+Remove the vault.zip file
+```
+rm vault_1.18.1_linux_amd64.zip 
 ```
 
 ## Start Vault server
@@ -63,6 +74,8 @@ When running Vault in `dev` mode it also takes over your terminal.
 Copy the `Unseal Key` and `Root Token`, and save them for future labs. 
 
 Open a new terminal window and SSH into the server. 
+
+**Note:** If working in the ```AWS CloudShell``` environment, you can create a new terminal by typing <ctrl-B> then 'c'
 
 In the new terminal export the following: 
 ```
