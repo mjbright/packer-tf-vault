@@ -61,13 +61,8 @@ Copy the key beginning at `-----BEGIN RSA PRIVATE KEY` and ending at `-----END R
 ```sh
 cd $HOME
 
-eksctl create cluster \
-    --name vault-demo \
-    --nodes 3 \
-    --with-oidc \
-    --ssh-access \
-    --ssh-public-key vault \
-    --managed
+eksctl create cluster --name vault-demo --nodes 3 \
+    --with-oidc --ssh-access --ssh-public-key vault --managed
 ```
 The cluster is created, deployed and then health-checked. When the cluster is ready the command modifies the kubectl configuration so that the commands you issue are performed against that cluster.
 
@@ -78,6 +73,25 @@ kubectl get nodes
 
 The cluster is ready.
 
+### Configure EKS cluster  to use EBS-CSI Storage Driver
+
+Create an iamserviceaccount for the Storage Driver:
+```
+    cluster_name=vault-demo
+
+    eksctl create iamserviceaccount --name ebs-csi-controller-sa --namespace kube-system --cluster $cluster_name \
+        --role-name AmazonEKS_EBS_CSI_DriverRole --role-only \
+        --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy --approve
+```
+
+Install the Driver Add-on:
+```
+    SA_ROLE_ARN="arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/AmazonEKS_EBS_CSI_DriverRole"
+
+    eksctl create addon --name aws-ebs-csi-driver --cluster $cluster_name --service-account-role-arn $SA_ROLE_ARN
+```
+
+
 ### Install MySQL for Secrets backend 
 MySQL is a fast, reliable, scalable, and easy to use open-source relational database system. MySQL Server is intended for mission-critical, heavy-load production systems as well as for embedding into mass-deployed software.
 
@@ -87,8 +101,9 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 ```
 
 Install the latest version of the MySQL Helm chart.
+<!-- helm install mysql bitnami/mysql -->
 ```sh
-helm install mysql bitnami/mysql
+helm install mysql bitnami/mysql --set global.defaultStorageClass=gp2
 ```
 
 By default the MySQL Helm chart deploys a single pod a service.
