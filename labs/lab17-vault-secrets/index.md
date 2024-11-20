@@ -403,6 +403,7 @@ Configure the secret at path `secret/partner` to enable Check-And-Set.
 Once check-and-set is enabled, every write operation requires the cas parameter with the current version of the secret. Set `cas` to `0` when a secret at that path does not already exist.
 
 Create a new secret at the path `secret/partner`.
+
 ```
 kubectl exec vault-0 -- vault kv put -cas=0 secret/partner name="Example Co." partner_id="123456789"
 
@@ -431,8 +432,8 @@ created_time     2018-04-16T23:00:28.66552289Z
 deletion_time    n/a
 destroyed        false
 version          2
+```
 
 # Congratulations !
 Go back to the [lab index](../../)
 
-```
