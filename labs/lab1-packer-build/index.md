@@ -148,5 +148,5 @@ You can list images which you own with the following command:
 
 ## Congrats!
 
-Go back to the [lab index](../)
+Go back to the [lab index](../../)
 
