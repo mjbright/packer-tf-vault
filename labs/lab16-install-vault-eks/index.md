@@ -229,6 +229,9 @@ kubectl exec vault-0 -- vault operator init \
 
 ```
 
+### Initialize and unseal one Vault pod
+
+
 The `operator init` command generates a master key that it disassembles into key shares `-key-shares=1` and then sets the number of key shares required to unseal Vault `-key-threshold=1`. These key shares are written to the output as unseal keys in JSON format `-format=json`. Here the output is redirected to a file named `cluster-keys.json`.
 
 Display the unseal key found in `cluster-keys.json`.
@@ -417,6 +420,15 @@ Vault is able to generate credentials within the MySQL database.
 
 ### Configure Vault Kubernetes authentication
 The initial root token is a privileged user that can perform any operation at any path. The web application only requires the ability to read secrets defined at a single path. This application should authenticate and be granted a token with limited access.
+
+## Enable secrets engine
+
+```
+kubectl exec vault-0 -- vault secrets enable -path=secret/ kv
+
+kubectl exec vault-0 -- vault kv enable-versioning secret/
+```
+
 
 Vault provides a Kubernetes authentication method that enables clients to authenticate with a Kubernetes Service Account Token.
 
