@@ -333,6 +333,9 @@ This Vault server joins the cluster sealed. To unseal the Vault server requires 
 Unseal the Vault server on `vault-1` with the unseal key.
 
 The Vault server on `vault-1` is now a functional node within the Vault cluster.
+```sh
+kubectl exec vault-1 -- vault operator unseal $VAULT_UNSEAL_KEY
+```
 
 Join the Vault server on `vault-2` to the Vault cluster.
 ```sh
