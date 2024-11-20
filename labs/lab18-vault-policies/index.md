@@ -424,6 +424,8 @@ created_time     2018-04-16T23:00:28.66552289Z
 deletion_time    n/a
 destroyed        false
 version          2
-```
 
-# Congrats!
+# Congratulations !
+Go back to the [lab index](../../)
+
+```

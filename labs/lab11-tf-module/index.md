@@ -153,5 +153,7 @@ When using a new module for the first time, you must run either `terraform init`
 
 Run `terraform destroy` to remove resources.
 
+# Congratulations !
+Go back to the [lab index](../../)
 
 

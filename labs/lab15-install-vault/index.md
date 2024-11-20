@@ -230,4 +230,6 @@ You should see the ```hello``` secret is no longer listed
 
 **Note:** To delete all versions and metadata, see the "vault kv metadata" subcommand.
 
-# Congrats! 
+# Congratulations !
+Go back to the [lab index](../../)
+

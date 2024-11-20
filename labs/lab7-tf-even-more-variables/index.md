@@ -368,3 +368,7 @@ terraform apply -var='resource_tags={project="my-project",environment="developme
 
 **Do not** clean up as we will reuse this configuration and state in the next lab
 
+
+# Congratulations !
+Go back to the [lab index](../../)
+

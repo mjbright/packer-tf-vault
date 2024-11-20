@@ -159,5 +159,7 @@ The output from the provisioner is too verbose to include in this tutorial, sinc
 
 If you were to launch this AMI, Redis would be pre-installed.
 
-## Congrats!
+# Congratulations !
+Go back to the [lab index](../../)
+
 

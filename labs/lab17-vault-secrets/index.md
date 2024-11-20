@@ -166,5 +166,8 @@ deny
 The output displays that this token has no capabilities (`deny`) for this path.
 
 
+# Congratulations !
+Go back to the [lab index](../../)
 
-# Congrats
+
+

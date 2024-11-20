@@ -73,7 +73,9 @@ commands to verify that the imports worked
 rm -rf .terraform/
 ```
 
-# Congrats!
 
+
+# Congratulations !
+Go back to the [lab index](../../)
 
 

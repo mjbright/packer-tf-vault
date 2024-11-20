@@ -188,4 +188,7 @@ Remove the ```.terraform``` directory containing the AWS plugin to prevent disk-
 rm -rf .terraform/
 ```
 
-# Congrats! 
+# Congratulations !
+Go back to the [lab index](../../)
+
+

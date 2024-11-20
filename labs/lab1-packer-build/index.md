@@ -146,7 +146,6 @@ You can list images which you own with the following command:
 ```aws ec2 describe-images --owner self --output text --region us-west-1 ```
 
 
-## Congrats!
-
+# Congratulations !
 Go back to the [lab index](../../)
 

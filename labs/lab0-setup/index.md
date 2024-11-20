@@ -35,5 +35,8 @@ Source the updated file
 source $HOME/.bash_profile
 ```
 
-## Congratulations
+# Congratulations !
 You are now logged into the AWS CloudShell, and ready for future labs. 
+
+Go back to the [lab index](../../)
+

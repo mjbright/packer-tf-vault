@@ -15,7 +15,7 @@ Run the following commands:
 ### Create a persistent directory for utilities
 ```sh
 mkdir -p $HOME/.local/bin
-cd $HOME/.local/bin
+cd $_
 ```
 
 ### Install kubectl
@@ -526,5 +526,7 @@ The result displays a `mysql` command with the credentials generated for this po
 mysql -h my-release-mysql.default.svc.cluster.local --user=v-kubernetes-readonly-zpqRzAee2b --password=Jb4epAXSirS2s-pnrI9- my_database
 ```
 
-# Congrats!
+# Congratulations !
+Go back to the [lab index](../../)
+
 

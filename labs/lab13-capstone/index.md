@@ -34,6 +34,9 @@ You should have a VPC, with a Load Balancer, and at least one EC2 instance runni
 
 
 
+# Congratulations !
+Go back to the [lab index](../../)
+
  
 
  

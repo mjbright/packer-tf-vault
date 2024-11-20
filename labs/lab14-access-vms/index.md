@@ -27,3 +27,6 @@ Expand “Connection_SSH_Auth and then specify the PPK file
  Now save your session    
 
 ![](index/FD3BA694-FD69-4C86-8EAF-4D5FC813EABA%202.png)
+
+# Congratulations !
+Go back to the [lab index](../../)

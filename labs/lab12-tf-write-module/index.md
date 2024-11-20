@@ -222,8 +222,8 @@ terraform get
 
 Now that your new module is installed and configured, run `terraform apply` to provision your bucket.
 
-## Congrats! 
-You have now configured and used your own module to create a static website. 
-
 ## Cleanup
 Now clean everything up by running `terraform destroy`
+
+# Congratulations !
+Go back to the [lab index](../../)

@@ -111,4 +111,7 @@ rm -rf .terraform/
 ```
 
 
-# Congrats!
+# Congratulations !
+Go back to the [lab index](../../)
+
+

@@ -115,4 +115,6 @@ Note that we have seen various ways in which we can specify variable values to P
 
 Read about the precedence of these different ways at [https://developer.hashicorp.com/packer/guides/hcl/variables#assigning-variables](https://developer.hashicorp.com/packer/guides/hcl/variables#assigning-variables)
 
-## Congrats! 
+# Congratulations !
+Go back to the [lab index](../../)
+
