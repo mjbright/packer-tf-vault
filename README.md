@@ -14,8 +14,8 @@ Lab 3: [Packer Variables](labs/packer-lab3-variables/)
 
 ### Day 2: Terraform
 Lab 1: [Create a resource](labs/tf-lab1-first-instance/)
-Lab 2: [Variables and output](labs/tf-lab3-more-variables/)
-Lab 3: [Multi resource deployment](labs/tf-lab2-variables-and-output/)
+Lab 2: [Variables and output](labs/tf-lab2-variables-and-output/)
+Lab 3: [Multi resource deployment]( labs/tf-lab3-more-variables/)
 Lab 4: [Strings, bool, and numbers](labs/tf-lab4-even-more-variables/)
 Lab 5: [Enable remote state](labs/tf-lab5-remote-state/)
 Lab 6: [Import existing resources](labs/tf-lab6-import/)
