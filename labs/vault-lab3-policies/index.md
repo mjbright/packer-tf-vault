@@ -103,29 +103,31 @@ The `deny` capability disables access to the path. When combined with other capa
 
 ## Create a policy
 
+<!--
 Copy the `admin-policy.hcl` into `vault-0`
 ```
 kubectl cp admin-policy.hcl vault-0:/home/vault/admin-policy.hcl
 ```
+-->
 
 Create an *admin* policy
 
 Create a policy named `admin` with the policy defined in `admin-policy.hcl`.
 
 ```
-kubectl exec vault-0 -- vault policy write admin /home/vault/admin-policy.hcl
+vault policy write admin /home/vault/admin-policy.hcl
 ```
 The policy is created or updated; if it already exists.
 
 ## Display a policy
 List all the policies.
 ```
-kubectl exec vault-0 -- vault policy list
+vault policy list
 ```
 
 Read the `admin` policy
 ```
-kubectl exec vault-0 -- vault policy read admin
+vault policy read admin
 ```
 
 The output displays paths and capabilites defined for this policy 
@@ -135,7 +137,7 @@ A token is able to display its capabilities for a path. This provides a way to v
 
 Create a token with the `admin` policy attached and store the token in the variable `ADMIN_TOKEN`.
 ```
-ADMIN_TOKEN=$(kubectl exec vault-0 -- vault token create -format=json -policy="admin" | jq -r ".auth.client_token")
+ADMIN_TOKEN=$(vault token create -format=json -policy="admin" | jq -r ".auth.client_token")
 ```
 
 Display the `ADMIN_TOKEN`.
@@ -149,7 +151,7 @@ The *admin* policy defines capabilities for the path `sys/auth/*`.
 
 Retrieve the capabilities of this token for the `sys/auth/approle` path.
 ```
-kubectl exec vault-0 -- vault token capabilities $ADMIN_TOKEN sys/auth/approle
+vault token capabilities $ADMIN_TOKEN sys/auth/approle
 
 create, delete, read, sudo, update
 ```
@@ -159,7 +161,7 @@ The output displays that this token has create, delete, read, sudo, update capab
 Retrieve the capabilities of this token for a path `not` defined in the policy.
 
 ```
-kubectl exec vault-0 -- vault token capabilities $ADMIN_TOKEN identity/entity
+vault token capabilities $ADMIN_TOKEN identity/entity
 
 deny
 ```

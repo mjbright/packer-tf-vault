@@ -11,12 +11,12 @@ Run the version 2 of KV secrets engine which can retain a configurable number of
 ![key-value versioning](https://learn.hashicorp.com/img/vault-versioned-kv-1.png)
 ## Step 1: Enable the KV secrets engine version 2
 ```
-kubectl exec vault-0 -- vault kv enable-versioning secret/
+vault kv enable-versioning secret/
 ```
 
 Confirm KV engine version 2 is enabled.
 ```
-kubectl exec vault-0 -- vault secrets list -detailed
+vault secrets list -detailed
 
 Path          Type         Accessor           ...   Options           Description
 ----          ----         --------                 -------           -----------
@@ -31,7 +31,7 @@ To understand how the versioning works, let's write some test data.
 
 Create a secret at the path `secret/customer/acme` with a `name` and `contact_email`.
 ```
-kubectl exec vault-0 -- vault kv put secret/customer/acme name="ACME Inc." \
+vault kv put secret/customer/acme name="ACME Inc." \
         contact_email="jsmith@acme.com"
 
 Key              Value
@@ -46,7 +46,7 @@ The secret stores metadata along with the secret data. The version is an auto-in
 
 Create secret at the same path `secret/customer/acme` but with different secret data.
 ```
-kubectl exec vault-0 -- vault kv put secret/customer/acme name="ACME Inc." contact_email="john.smith@acme.com"
+vault kv put secret/customer/acme name="ACME Inc." contact_email="john.smith@acme.com"
 
 Key              Value
 ---              -----
@@ -60,7 +60,7 @@ This secret data is replaced and the version is incremented to `2`.
 
 Get the secret defined at the path `secret/customer/acme`.
 ```
-kubectl exec vault-0 -- vault kv get secret/customer/acme
+vault kv get secret/customer/acme
 
 ====== Metadata ======
 Key              Value
@@ -81,7 +81,7 @@ The output displays the second secret. Creating a secret at the same path replac
 
 Patch the secret defined at the path `secret/customer/acme` with a new `contact_email`.
 ```
-kubectl exec vault-0 -- vault kv patch secret/customer/acme contact_email="admin@acme.com"
+vault kv patch secret/customer/acme contact_email="admin@acme.com"
 ```
 
 The patch commands merges the fields within the secret data.
@@ -91,7 +91,7 @@ You may run into a situation where you need to view the secret before an update.
 
 Get version 1 of the secret defined at the path `secret/customer/acme`.
 ```
-kubectl exec vault-0 -- vault kv get -version=1 secret/customer/acme
+vault kv get -version=1 secret/customer/acme
 
 ====== Metadata ======
 Key              Value
@@ -110,7 +110,7 @@ name             ACME Inc.
 
 Get the metadata of the secret defined at the path `secret/customer/acme`.
 ```
-kubectl exec vault-0 -- vault kv metadata get secret/customer/acme
+vault kv metadata get secret/customer/acme
 
 ========== Metadata ==========
 Key                     Value
@@ -150,14 +150,14 @@ By default, the `kv-v2` secrets engine keeps up to 10 versions. Let's limit the 
 
 Configure the secrets engine at path `secret/` to limit all secrets to a maximum of `4` versions.
 ```
-kubectl exec vault-0 -- vault write secret/config max_versions=4
+vault write secret/config max_versions=4
 ```
 
 Every secret stored for this engine are set to a maximum of `4` versions.
 
 Display the secrets engine configuration settings.
 ```
-kubectl exec vault-0 -- vault read secret/config
+vault read secret/config
 
 Key             Value
 ---             -----
@@ -168,7 +168,7 @@ max_versions    4
 Configure the secret at path `secret/customer/acme` to limit secrets to a maximum of `4` versions.
 
 ```
-kubectl exec vault-0 -- vault kv metadata put -max-versions=4 secret/customer/acme
+vault kv metadata put -max-versions=4 secret/customer/acme
 ```
 
 The secret can also define the maximum number of versions.
@@ -176,14 +176,14 @@ The secret can also define the maximum number of versions.
 Create four more secrets at the path `secret/customer/acme`.
 
 ```
-kubectl exec vault-0 -- vault kv put secret/customer/acme name="ACME Inc." \
+vault kv put secret/customer/acme name="ACME Inc." \
         contact_email="admin@acme.com"
 ```
 
 Get the metadata of the secret defined at the path `secret/customer/acme`.
 
 ```
-kubectl exec vault-0 -- vault kv metadata get secret/customer/acme
+vault kv metadata get secret/customer/acme
 
 ======= Metadata =======
 Key                Value
@@ -227,7 +227,7 @@ The metadata displays the `current_version` and the history of versions stored. 
 
 Verify that version 1 of the secret defined at the path `secret/customer/acme` are deleted.
 ```
-kubectl exec vault-0 -- vault kv get -version=1 secret/customer/acme
+vault kv get -version=1 secret/customer/acme
 
 No value found at secret/data/customer/data
 ```
@@ -235,7 +235,7 @@ No value found at secret/data/customer/data
 Delete version 4 and 5 of the secrets at path `secret/customer/acme`.
 
 ```
-kubectl exec vault-0 -- vault kv delete -versions="4,5" secret/customer/acme
+vault kv delete -versions="4,5" secret/customer/acme
 ```
 
 Get the metadata of the secret defined at the path `secret/customer/acme`.
@@ -262,20 +262,20 @@ The metadata on versions 4 and 5 reports its deletion timestamp (`deletion_time`
 
 Undelete version 5 of the secrets at path `secret/customer/acme`.
 ```
-kubectl exec vault-0 -- vault kv undelete -versions=5 secret/customer/acme
+vault kv undelete -versions=5 secret/customer/acme
 ```
 ## Step 6: Permanently delete data
 
 Destroy version `4` of the secrets at path `secret/customer/acme`.
 ```
-kubectl exec vault-0 -- vault kv destroy -versions=4 secret/customer/acme
+vault kv destroy -versions=4 secret/customer/acme
 
 Success! Data written to: secret/destroy/customer/acme
 ```
 
 Get the metadata of the secret defined at the path `secret/customer/acme`.
 ```
-kubectl exec vault-0 -- vault kv metadata get secret/customer/acme
+vault kv metadata get secret/customer/acme
 
 # ...snip...
 ====== Version 4 ======
@@ -291,7 +291,7 @@ The metadata displays that Version 4 is destroyed.
 
 Delete all versions of the secret at the path `secret/customer/acme`.
 ```
-kubectl exec vault-0 -- vault kv metadata delete secret/customer/acme
+vault kv metadata delete secret/customer/acme
 
 Success! Data deleted (if it existed) at: secret/metadata/customer/acme
 ```
@@ -302,29 +302,29 @@ As of Vault 1.2, you can configure the length of time before a version gets dele
 
 Configure the secrets at path `secret/test` to delete versions after `40` seconds.
 ```
-kubectl exec vault-0 -- vault kv metadata put -delete-version-after=40s secret/test
+vault kv metadata put -delete-version-after=40s secret/test
 
 Success! Data written to: secret/metadata/test
 ```
 
 Create a secret at the path `secret/test`.
 ```
-kubectl exec vault-0 -- vault kv put secret/test message="data1"
+vault kv put secret/test message="data1"
 ```
 
 Again, create a secret at the path `secret/test`.
 ```
-kubectl exec vault-0 -- vault kv put secret/test message="data2"
+vault kv put secret/test message="data2"
 ```
 
 Again, create a secret at the path `secret/test`.
 ```
-kubectl exec vault-0 -- vault kv put secret/test message="data3"
+vault kv put secret/test message="data3"
 ```
 
 Get the metadata of the secret defined at the path `secret/test`.
 ```
-kubectl exec vault-0 -- vault kv metadata get secret/test
+vault kv metadata get secret/test
 
 ========== Metadata ==========
 Key                     Value
@@ -364,7 +364,7 @@ The metadata displays a `deletion_time` set on each version. After `40` seconds,
 Get version 1 of the secret defined at the path `secret/test`.
 
 ```
-kubectl exec vault-0 -- vault kv get -version=1 secret/test
+vault kv get -version=1 secret/test
 
 ====== Metadata ======
 Key              Value
@@ -380,7 +380,7 @@ The v2 of KV secrets engine supports a Check-And-Set operation to prevent uninte
 
 Display the secrets engine configuration settings.
 ```
- kubectl exec vault-0 -- vault read secret/config
+ vault read secret/config
 
 Key             Value
 ---             -----
@@ -392,12 +392,12 @@ The `cas_required` setting is `false`. The KV secrets engine defaults to disable
 
 Configure the secrets engine at path `secret/` to enable Check-And-Set.
 ```
-kubectl exec vault-0 -- vault write secret/config cas-required=true
+vault write secret/config cas-required=true
 ```
 
 Configure the secret at path `secret/partner` to enable Check-And-Set.
 ```
- kubectl exec vault-0 -- vault kv metadata put -cas-required=true secret/partner
+ vault kv metadata put -cas-required=true secret/partner
 ```
 
 Once check-and-set is enabled, every write operation requires the cas parameter with the current version of the secret. Set `cas` to `0` when a secret at that path does not already exist.
@@ -405,7 +405,7 @@ Once check-and-set is enabled, every write operation requires the cas parameter 
 Create a new secret at the path `secret/partner`.
 
 ```
-kubectl exec vault-0 -- vault kv put -cas=0 secret/partner name="Example Co." partner_id="123456789"
+vault kv put -cas=0 secret/partner name="Example Co." partner_id="123456789"
 
 Key              Value
 ---              -----
@@ -417,7 +417,7 @@ version          1
 
 Overwrite the secret at the path `secret/partner`.
 ```
-kubectl exec vault-0 -- vault kv put -cas=1 secret/partner name="Example Co." \
+vault kv put -cas=1 secret/partner name="Example Co." \
       partner_id="ABCDEFGHIJKLMN"
 Key              Value
 ---              -----
